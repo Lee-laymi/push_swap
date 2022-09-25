@@ -6,7 +6,7 @@
 #    By: skrairab <Marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 21:17:52 by skrairab          #+#    #+#              #
-#    Updated: 2022/09/24 02:38:16 by skrairab         ###   ########.fr        #
+#    Updated: 2022/09/26 02:07:19 by skrairab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ SRCS = ft_atoi.c\
 		ft_split.c\
 		ft_strlcpy.c\
 		push_swap.c\
-		push_swap_main.c
+		push_swap_main.c\
+		ft_check_argv_error.c\
+		ft_sort_swap.c
 
 NAME = push_swap
 
