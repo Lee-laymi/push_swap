@@ -6,66 +6,37 @@
 /*   By: skrairab <Marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 01:15:17 by skrairab          #+#    #+#             */
-/*   Updated: 2022/09/22 02:59:15 by skrairab         ###   ########.fr       */
+/*   Updated: 2022/09/24 05:02:54 by skrairab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char **argv)
-{	
-	char	**num;
-	int		i;
-	int		j;
-	t_list	*box1;
-	t_list	*lastbox;
+void	ft_checkdouble(t_list *inbox)
+{
+	t_list		*tmp;
+	t_list		*tmp2;
+	int			len;
 
-	i = 0;
-	box1 = malloc(sizeof(t_list));
-	if (box1 == NULL)
-		return (0);
-	ft_init(box1);
-	// printf("box1 = %d\n",box1->num1);
-	// // while (i < 10)
-	// {
-	// 	ft_addbox(box1);
-	// 	i++;
-	// }
-	//i = 0;
-	// while (box1)
-	// {
-	// 	i++;
-	// 	if (box1->next == NULL)
-	// 		break;
-	// 	box1 = box1->next;
-	// }
-	// printf("i = %d\n", i);
-
-	i = 1;
-	while (argv[i])
+	tmp = inbox;
+	while (tmp)
 	{
-		j = 0;
-		num = ft_split(argv[i], ' ');
-		while (num[j])
+		tmp2 = tmp;
+		len = 0;
+		while (tmp2)
 		{
-			lastbox = ft_lastbox(box1);
-		 	lastbox->num1 = ft_atoi(num[j]);
-			if (num[j+1] != NULL)
-				ft_addbox(box1);
-			j++;
+			if (tmp->num1 == tmp2->num1)
+				len++;
+			tmp2 = tmp2->next;
 		}
-		if (argv[i+1] != NULL)
-				ft_addbox(box1);
-		i++;
-
+		if (len > 1)
+		{
+			write(2, "Error\n", 6);
+			ft_free(inbox);
+			exit (0);
+		}
+		tmp = tmp->next;
 	}
-	while (box1)
-	{
-		printf("i = %d\n", box1->num1);
-		if (box1->next == NULL)
-			break;
-		box1 = box1->next;
-	}	
 }
 
 void	ft_init(t_list *box1)
@@ -81,13 +52,13 @@ void	ft_addbox(t_list *box)
 
 	new_box = malloc(sizeof(t_list));
 	if (new_box == NULL)
-		return;
+		return ;
 	ft_init(new_box);
 	temp = box;
 	while (temp)
 	{
 		if (temp->next == NULL)
-			break;
+			break ;
 		temp = temp->next;
 	}
 	temp->next = new_box;
@@ -101,11 +72,30 @@ t_list	*ft_lastbox(t_list *box1)
 	while (temp)
 	{
 		if (temp->next == NULL)
-			break;
+			break ;
 		temp = temp->next;
 	}
 	return (temp);
 }
 
+void	ft_checkdigit(char **num, t_list *box1)
+{
+	int		c;
+	int		d;
 
-
+	c = 0;
+	while (num[c])
+	{
+		d = 0;
+		while (num[c][d])
+		{
+			if (num[c][d] == '-' && (num[c][d + 1] < 48 || num[c][d + 1] > 57))
+				ft_print_error(num, box1);
+			else if ((num[c][d] < 48 || num[c][d] > 57) && num[c][d] != ' ' \
+					&& num[c][d] != '-')
+				ft_print_error(num, box1);
+			d++;
+		}
+		c++;
+	}
+}
