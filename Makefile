@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: skrairab <Marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ami <ami@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 21:17:52 by skrairab          #+#    #+#              #
-#    Updated: 2022/09/26 02:07:19 by skrairab         ###   ########.fr        #
+#    Updated: 2022/12/01 22:54:48 by ami              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS = ft_atoi.c\
 		push_swap.c\
 		push_swap_main.c\
 		ft_check_argv_error.c\
-		ft_sort_swap.c
+		ft_sort_swap.c\
+		ft_rotate.c
 
 NAME = push_swap
 

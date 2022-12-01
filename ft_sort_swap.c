@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skrairab <Marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 00:56:57 by skrairab          #+#    #+#             */
-/*   Updated: 2022/09/28 17:59:46 by skrairab         ###   ########.fr       */
+/*   Updated: 2022/12/01 22:50:55 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_sort_ab(t_tower *tower, int mode1, int mode2)
 
 	tmp = NULL;
 	if (mode1 == 1)
-		tmp = tower->a;	
+		tmp = tower->a;
 	else if (mode1 == 2)
 		tmp = tower->b;
 	if (ft_count_box(tmp) > 1)
@@ -48,7 +48,7 @@ void	ft_sort_ss(t_tower *tower)
 	}
 }
 
-int		ft_count_box(t_list *tmp)
+int	ft_count_box(t_list *tmp)
 {
 	int		count;
 	t_list	*tmp_count;
@@ -71,12 +71,10 @@ void	ft_push_b(t_tower *tower)
 	t_list	*tmp_b;
 	//t_tower *head1 = NULL;
 	//t_tower *head2 = NULL;
-
 	tmp = NULL;
 	tmp_a = NULL;
 	tmp_b = NULL;
 	//head1 = tower;
-
 	//if (mode == 1)
 	//{	
 		tmp_a = tower->a; //box1 b
@@ -88,36 +86,34 @@ void	ft_push_b(t_tower *tower)
 		tmp_b->next = tmp;
 		tower->a = tmp_a;
 		tower->b = tmp_b;
-
 		//if ((mode1 == 1) && (mode2 == 1))
 			write(2, "pb\n", 3);
+}
 
-// printf("head after a = %d\n", head1->a->num1);
-// 		while (head1->a)
-// 	{
-// 		printf("head after a = %d\n", head1->a->num1);
-// 		head1->a = head1->a->next;
-// 	}
-// 	while (head1->b)
-// 	{
-// 		printf("head after b = %d\n", head1->b->num1);
-// 		head1->b = head1->b->next;
-// 	}
+void	ft_push_a(t_tower *tower)
+{
+	t_list	*tmp;
+	t_list	*tmp_a;
+	t_list	*tmp_b;
+	//t_tower *head1 = NULL;
+	//t_tower *head2 = NULL;
+	tmp = NULL;
+	tmp_a = NULL;
+	tmp_b = NULL;
+	//head1 = tower;
 
-		//tmp_b->next = tmp_b;
-	// while (tmp_a)
-	// {
-	// 	printf("tower after a = %d\n", tmp_a->num1);
-	// 	tmp_a = tmp_a->next;
-	// }
-	// while (tmp_b)
-	// {
-	// 	printf("tower after b = %d\n", tmp_b->num1);
-	// 	tmp_b = tmp_b->next;
-	// }
-	//exit(0);
+	//if (mode == 1)
+	//{	
+		tmp_a = tower->a; //box1 b
+		tmp_b = tower->b;//tmpb
+		//tower->b = tmp; // box1 in b
+		tmp = tmp_a;
+		tmp_a = tmp_b;
+		tmp_b = tmp_b->next;
+		tmp_a->next = tmp;
+		tower->a = tmp_a;
+		tower->b = tmp_b;
 
-
-	//}
-
+		//if ((mode1 == 1) && (mode2 == 1))
+			write(2, "pa\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:30:40 by skrairab          #+#    #+#             */
-/*   Updated: 2022/12/02 01:20:31 by ami              ###   ########.fr       */
+/*   Updated: 2022/12/01 23:14:13 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,13 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_init_tower(tower);
 	tower->a = box1;
-
-	//ft_rotate_a(tower);
+	//tower->a = ft_sort_ab(tower, 1, 1);
 	ft_push_b(tower);
 	ft_push_b(tower);
-	ft_push_b(tower);
-	ft_push_b(tower);
-	ft_push_b(tower);
-	ft_rotate_rrb(tower);
+	//tower->b = ft_sort_ab(tower, 2, 2);
+	ft_sort_ss(tower);
+	ft_push_a(tower);
+	ft_rotate_a(tower);
 	while (tower->a)
 	{
 		printf("tower after a = %d\n", tower->a->num1);

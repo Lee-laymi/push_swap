@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_argv_error.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skrairab <Marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 00:53:54 by skrairab          #+#    #+#             */
-/*   Updated: 2022/09/26 01:26:20 by skrairab         ###   ########.fr       */
+/*   Updated: 2022/12/01 21:22:04 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_check_argv_error(char **argv, t_list *box1, int i)
 		exit (0);
 	}
 }
-
 
 void	ft_init_tower(t_tower *tower)
 {

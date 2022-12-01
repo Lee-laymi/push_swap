@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skrairab <Marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 01:16:15 by skrairab          #+#    #+#             */
-/*   Updated: 2022/09/26 04:00:45 by skrairab         ###   ########.fr       */
+/*   Updated: 2022/12/02 01:16:42 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ t_list	*ft_sort_ab(t_tower *tower, int mode1, int mode2);
 int		ft_count_box(t_list *tmp);
 void	ft_sort_ss(t_tower *tower);
 void	ft_push_b(t_tower *tower);
-
+void	ft_push_a(t_tower *tower);
+void	ft_rotate_a(t_tower *tower);
+void	ft_rotate_b(t_tower *tower);
+void  ft_rotate_rra(t_tower *tower);
+void  ft_rotate_rrb(t_tower *tower);
+void  ft_rotate_rrr(t_tower *tower);
 
 #endif
