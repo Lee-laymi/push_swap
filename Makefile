@@ -6,7 +6,7 @@
 #    By: ami <ami@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 21:17:52 by skrairab          #+#    #+#              #
-#    Updated: 2022/12/01 22:54:48 by ami              ###   ########.fr        #
+#    Updated: 2022/12/02 22:20:47 by ami              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,11 @@ SRCS = ft_atoi.c\
 		push_swap_main.c\
 		ft_check_argv_error.c\
 		ft_sort_swap.c\
-		ft_rotate.c
+		ft_rotate.c\
+		ft_rotate_rr_rrr.c\
+		ft_algorithm_swap.c\
+		ft_setindex.c
+		
 
 NAME = push_swap
 

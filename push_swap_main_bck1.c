@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   push_swap_main_bck1.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:30:40 by skrairab          #+#    #+#             */
-/*   Updated: 2022/12/01 23:14:13 by ami              ###   ########.fr       */
+/*   Updated: 2022/12/02 21:52:01 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	ft_check_argv(char **argv, t_list *box1)
 		{
 			lastbox = ft_lastbox(box1);
 			lastbox->num1 = ft_atoi(num[j], num, box1);
+			lastbox->index = -1;
 			if (num[j + 1] != NULL)
 				ft_addbox(box1);
 			j++;

@@ -6,7 +6,7 @@
 /*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 00:56:57 by skrairab          #+#    #+#             */
-/*   Updated: 2022/12/01 22:50:55 by ami              ###   ########.fr       */
+/*   Updated: 2022/12/03 00:03:53 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ t_list	*ft_sort_ab(t_tower *tower, int mode1, int mode2)
 		tmp = tower->b;
 	if (ft_count_box(tmp) > 1)
 	{
-		tmp_swap1 = tmp; //box1
-		tmp = tmp->next; //box2
-		tmp_swap3 = tmp->next; //box3
-		tmp->next = tmp_swap1; // 2->1
-		tmp->next->next = tmp_swap3; //1->3
+		tmp_swap1 = tmp;
+		tmp = tmp->next;
+		tmp_swap3 = tmp->next;
+		tmp->next = tmp_swap1;
+		tmp->next->next = tmp_swap3;
 		if ((mode1 == 1) && (mode2 == 1))
 			write(2, "sa\n", 3);
 		else if ((mode1 == 2) && (mode2 == 2))
@@ -60,7 +60,6 @@ int	ft_count_box(t_list *tmp)
 		count++;
 		tmp_count = tmp_count->next;
 	}
-	//printf("count = %d\n", count);
 	return (count);
 }
 
@@ -69,25 +68,19 @@ void	ft_push_b(t_tower *tower)
 	t_list	*tmp;
 	t_list	*tmp_a;
 	t_list	*tmp_b;
-	//t_tower *head1 = NULL;
-	//t_tower *head2 = NULL;
+
 	tmp = NULL;
 	tmp_a = NULL;
-	tmp_b = NULL;
-	//head1 = tower;
-	//if (mode == 1)
-	//{	
-		tmp_a = tower->a; //box1 b
-		tmp_b = tower->b;//tmpb
-		//tower->b = tmp; // box1 in b
-		tmp = tmp_b;
-		tmp_b = tmp_a;
-		tmp_a = tmp_a->next;
-		tmp_b->next = tmp;
-		tower->a = tmp_a;
-		tower->b = tmp_b;
-		//if ((mode1 == 1) && (mode2 == 1))
-			write(2, "pb\n", 3);
+	tmp_b = NULL;	
+	tmp_a = tower->a;
+	tmp_b = tower->b;
+	tmp = tmp_b;
+	tmp_b = tmp_a;
+	tmp_a = tmp_a->next;
+	tmp_b->next = tmp;
+	tower->a = tmp_a;
+	tower->b = tmp_b;
+		write(2, "pb\n", 3);
 }
 
 void	ft_push_a(t_tower *tower)
@@ -95,25 +88,17 @@ void	ft_push_a(t_tower *tower)
 	t_list	*tmp;
 	t_list	*tmp_a;
 	t_list	*tmp_b;
-	//t_tower *head1 = NULL;
-	//t_tower *head2 = NULL;
+
 	tmp = NULL;
 	tmp_a = NULL;
 	tmp_b = NULL;
-	//head1 = tower;
-
-	//if (mode == 1)
-	//{	
-		tmp_a = tower->a; //box1 b
-		tmp_b = tower->b;//tmpb
-		//tower->b = tmp; // box1 in b
-		tmp = tmp_a;
-		tmp_a = tmp_b;
-		tmp_b = tmp_b->next;
-		tmp_a->next = tmp;
-		tower->a = tmp_a;
-		tower->b = tmp_b;
-
-		//if ((mode1 == 1) && (mode2 == 1))
-			write(2, "pa\n", 3);
+	tmp_a = tower->a;
+	tmp_b = tower->b;
+	tmp = tmp_a;
+	tmp_a = tmp_b;
+	tmp_b = tmp_b->next;
+	tmp_a->next = tmp;
+	tower->a = tmp_a;
+	tower->b = tmp_b;
+		write(2, "pa\n", 3);
 }

@@ -21,6 +21,7 @@ void  ft_rotate_a(t_tower *tower)
 	tmp -> next = tmp_1;
 	tmp_1 -> next = NULL;
 	tower -> a = tmp_2;
+	write(2, "ra\n", 3);
 }
 
 void  ft_rotate_b(t_tower *tower)
@@ -44,12 +45,7 @@ void  ft_rotate_b(t_tower *tower)
 	tmp -> next = tmp_1;
 	tmp_1 -> next = NULL;
 	tower -> b = tmp_2;
-}
-
-void  ft_rotate_rr(t_tower *tower)
-{
-	ft_rotate_a(tower);
-	ft_rotate_b(tower);
+	write(2, "rb\n", 3);
 }
 
 void  ft_rotate_rra(t_tower *tower)
@@ -74,6 +70,7 @@ void  ft_rotate_rra(t_tower *tower)
 	tmp_f->next = tmp_h; 
 	tmp->next = NULL;
 	tower -> a = tmp_f;
+	write(2, "rra\n", 4);
 }
 
 void  ft_rotate_rrb(t_tower *tower)
@@ -98,10 +95,5 @@ void  ft_rotate_rrb(t_tower *tower)
 	tmp_f->next = tmp_h; 
 	tmp->next = NULL;
 	tower -> b = tmp_f;
-}
-
-void  ft_rotate_rrr(t_tower *tower)
-{
-	ft_rotate_rra(tower);
-	ft_rotate_rrb(tower);
+	write(2, "rrb\n", 4);
 }

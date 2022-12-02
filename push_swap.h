@@ -6,7 +6,7 @@
 /*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 01:16:15 by skrairab          #+#    #+#             */
-/*   Updated: 2022/12/02 01:16:42 by ami              ###   ########.fr       */
+/*   Updated: 2022/12/02 23:35:40 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int					num1;
+	int					index;
 	struct s_list		*next;
 }						t_list;
 
@@ -55,5 +56,10 @@ void	ft_rotate_b(t_tower *tower);
 void  ft_rotate_rra(t_tower *tower);
 void  ft_rotate_rrb(t_tower *tower);
 void  ft_rotate_rrr(t_tower *tower);
+void  ft_rotate_rr(t_tower *tower);
+void    ft_algorithm_swap(t_tower *tower);
+int    ft_checklineup(t_tower *tower);
+void    ft_setindex(t_list *stack);
+t_list 	*ft_getnextmin(t_list *stack);
 
 #endif

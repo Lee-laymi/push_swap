@@ -6,7 +6,7 @@
 /*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 02:30:40 by skrairab          #+#    #+#             */
-/*   Updated: 2022/12/02 01:20:31 by ami              ###   ########.fr       */
+/*   Updated: 2022/12/03 00:03:20 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,35 @@
 
 int	main(int argc, char **argv)
 {
-	//int		i;
 	t_list	*box1;
 	t_tower	*tower;
 
 	(void) argc;
-	//i = 0;
 	box1 = malloc(sizeof(t_list));
 	if (box1 == NULL)
 		return (0);
 	ft_init(box1);
 	ft_check_argv(argv, box1);
 	ft_checkdouble(box1);
+	ft_setindex(box1);
 	tower = malloc(sizeof(t_tower));
 	if (tower == NULL)
 		return (0);
 	ft_init_tower(tower);
 	tower->a = box1;
-
-	//ft_rotate_a(tower);
-	ft_push_b(tower);
-	ft_push_b(tower);
-	ft_push_b(tower);
-	ft_push_b(tower);
-	ft_push_b(tower);
-	ft_rotate_rrb(tower);
-	while (tower->a)
-	{
-		printf("tower after a = %d\n", tower->a->num1);
-		tower->a = tower->a->next;
-	}
-	while (tower->b)
-	{
-		printf("tower after b = %d\n", tower->b->num1);
-		tower->b = tower->b->next;
-	}
+	ft_algorithm_swap(tower);
+	// while (tower->a)
+	// {
+	// 	printf("tower after a = %d\n", tower->a->num1);
+	// 	printf("tower index a = %d\n", tower->a->index);
+	// 	tower->a = tower->a->next;
+	// }
+	// while (tower->b)
+	// {
+	// 	printf("tower after b = %d\n", tower->b->num1);
+	// 	tower->b = tower->b->next;
+	// }
 	ft_free(box1);
-	
 }
 
 void	ft_free(t_list *box1)
