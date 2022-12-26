@@ -5,98 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 01:15:17 by skrairab          #+#    #+#             */
-/*   Updated: 2022/12/02 21:26:31 by ami              ###   ########.fr       */
+/*   Created: 2022/12/16 22:34:13 by ami               #+#    #+#             */
+/*   Updated: 2022/12/17 23:49:29 by ami              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# include "push_swap.h"
 
-void	ft_checkdouble(t_list *inbox)
+int main(int argc, char **argv)
 {
-	t_list		*tmp;
-	t_list		*tmp2;
-	int			len;
-
-	tmp = inbox;
-	while (tmp)
-	{
-		tmp2 = tmp;
-		len = 0;
-		while (tmp2)
-		{
-			if (tmp->num1 == tmp2->num1)
-				len++;
-			tmp2 = tmp2->next;
-		}
-		if (len > 1)
-		{
-			write(2, "Error\n", 6);
-			ft_free(inbox);
-			exit (0);
-		}
-		tmp = tmp->next;
-	}
-}
-
-void	ft_init(t_list *box1)
-{
-	box1->num1 = 0;
-	box1->index = -1;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-	box1->next = NULL;
-}
-
-void	ft_addbox(t_list *box)
-{
-	t_list		*temp;
-	t_list		*new_box;
-
-	new_box = malloc(sizeof(t_list));
-	if (new_box == NULL)
-		return ;
-	ft_init(new_box);
-	temp = box;
-	while (temp)
-	{
-		if (temp->next == NULL)
-			break ;
-		temp = temp->next;
-	}
-	temp->next = new_box;
-}
-
-t_list	*ft_lastbox(t_list *box1)
-{
-	t_list	*temp;
-
-	temp = box1;
-	while (temp)
-	{
-		if (temp->next == NULL)
-			break ;
-		temp = temp->next;
-	}
-	return (temp);
-}
-
-void	ft_checkdigit(char **num, t_list *box1)
-{
-	int		c;
-	int		d;
-
-	c = 0;
-	while (num[c])
-	{
-		d = 0;
-		while (num[c][d])
-		{
-			if (num[c][d] == '-' && (num[c][d + 1] < 48 || num[c][d + 1] > 57))
-				ft_print_error(num, box1);
-			else if ((num[c][d] < 48 || num[c][d] > 57) && num[c][d] != ' ' \
-					&& num[c][d] != '-')
-				ft_print_error(num, box1);
-			d++;
-		}
-		c++;
-	}
+    t_list  *box1;
+    t_tower     *tower;
+    (void) argc;
+   // (void) argv;
+    
+    box1 = malloc(sizeof(t_list));
+    if (box1 == NULL)
+		return (0);
+    ft_init(box1);
+    //printf("Hello \n");
+    ft_check_argv(argv, box1);
+    ft_checkdouble(box1);
+    ft_setindex(box1);
+    tower = malloc(sizeof(t_tower));
+	  if (tower == NULL)
+		  return (0);
+	  ft_init_tower(tower);
+   // ft_algorithm_swap(tower);
+    ft_rotate_a(tower);
+    // while (box1)
+    // {
+    //   printf("box1 = %d\n", box1->num1);
+    //   box1 = box1->next;
+    // }
+    // while (box1)
+    // {
+    //   printf("box1 = %d\n", box1->index);
+    //   box1 = box1->next;
+    // }
+   
 }

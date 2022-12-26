@@ -6,12 +6,19 @@ void  ft_rotate_a(t_tower *tower)
 	t_list	*tmp_1;
     t_list  *tmp_2;
 
+	
     tmp = NULL;
 	tmp_1 = NULL;
     tmp_2 = NULL;
+	
     tmp_1 = tower->a;
+	
 	tmp = tmp_1; 
+	printf("tmp->next == %c\n", tower -> a);
+	//printf("tmp->next == %c\n", tmp_2->num1);
+	exit(0);
 	tmp_2 = tmp -> next;
+	exit(0);
 	while (tmp)
 	{
 		if (tmp->next == NULL)

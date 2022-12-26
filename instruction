@@ -1,7 +1,10 @@
-check error
+set initial value of parameter in each box.
+check argv & error
+set index
 push a
 push b
 sa
 sb
 ss
-rotate a(ongoing)
+all rotate
+swap 3,4,5 (on going)
