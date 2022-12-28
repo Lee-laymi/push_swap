@@ -34,7 +34,7 @@ CC_FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	$(CC) -g $(CC_FLAGS) -o $(NAME) $(SRCS)
+	$(CC) -g $(CC_FLAGS) -o $(NAME) $(SRCS) -g
 
 clean:
 	rm -rf $(NAME)

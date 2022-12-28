@@ -14,11 +14,11 @@ void  ft_rotate_a(t_tower *tower)
     tmp_1 = tower->a;
 	
 	tmp = tmp_1; 
-	printf("tmp->next == %c\n", tower -> a);
+	printf("tmp->next == %d\n", tower->a->num1);
 	//printf("tmp->next == %c\n", tmp_2->num1);
-	exit(0);
-	tmp_2 = tmp -> next;
-	exit(0);
+	// exit(0);
+	tmp_2 = tmp->next;
+	//exit(0);
 	while (tmp)
 	{
 		if (tmp->next == NULL)
@@ -104,3 +104,15 @@ void  ft_rotate_rrb(t_tower *tower)
 	tower -> b = tmp_f;
 	write(2, "rrb\n", 4);
 }
+
+// void	ft_findmin(t_tower *tower)
+// {
+// 	t_tower	*tmp;
+
+// 	tmp = NULL;
+// 	tmp = tower->a;
+
+
+
+
+// }

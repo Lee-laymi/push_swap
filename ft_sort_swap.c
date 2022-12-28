@@ -12,38 +12,62 @@
 
 #include "push_swap.h"
 
-t_list	*ft_sort_ab(t_tower *tower, int mode1, int mode2)
+void	ft_sort_ab(t_tower *tower, int mode1, int mode2)
 {
 	t_list	*tmp;
-	t_list	*tmp_swap1;
-	t_list	*tmp_swap3;
+	t_list	*head;
+	t_list	*last;
 
 	tmp = NULL;
 	if (mode1 == 1)
 		tmp = tower->a;
 	else if (mode1 == 2)
 		tmp = tower->b;
+	printf("cnt = %d\n", ft_count_box(tmp));
 	if (ft_count_box(tmp) > 1)
 	{
-		tmp_swap1 = tmp;
+		//head = tmp
+		//tmp = a
+		head = tmp;
+		last = tmp->next->next;
 		tmp = tmp->next;
-		tmp_swap3 = tmp->next;
-		tmp->next = tmp_swap1;
-		tmp->next->next = tmp_swap3;
+		tmp->next = head;
+		tmp->next->next = last;
+
+		if (mode1 == 1)
+			tower->a = tmp;
+		else if (mode1 == 2)
+			tower->b = tmp;
+
+		// head = tmp->next;
+		// tmp->next = tmp->next->next;
+		// head->next = tmp;
+		// tmp = head;
+
+		// while(tmp)
+		// {
+		// 	printf("num ---- %d \n", tmp->num1);
+		// 	tmp = tmp->next;
+		// }
+		// tmp_swap1 = tmp;
+		// tmp = tmp->next;
+		// tmp_swap3 = tmp->next;
+		// tmp->next = tmp_swap1;
+		// tmp->next->next = tmp_swap3;
 		if ((mode1 == 1) && (mode2 == 1))
 			write(2, "sa\n", 3);
 		else if ((mode1 == 2) && (mode2 == 2))
 			write(2, "sb\n", 3);
 	}
-	return (tmp);
+	// return (tmp);
 }
 
 void	ft_sort_ss(t_tower *tower)
 {
 	if ((ft_count_box(tower->a) > 1) && (ft_count_box(tower->b) > 1))
 	{
-		tower->a = ft_sort_ab(tower, 1, 3);
-		tower->b = ft_sort_ab(tower, 2, 3);
+		ft_sort_ab(tower, 1, 3);
+		ft_sort_ab(tower, 2, 3);
 		write(2, "ss\n", 3);
 	}
 }

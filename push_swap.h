@@ -24,11 +24,21 @@ typedef struct s_list
 	struct s_list		*next;
 }						t_list;
 
+typedef	struct s_variable
+{
+	int		min;
+	int		max;
+	int		medium;
+}						t_var;
+ 
 typedef struct s_tower
 {
 	t_list	*a;
 	t_list	*b;
+	t_var	var;
 }						t_tower;
+
+
 
 void	ft_init(t_list *box1);
 void	ft_checkdouble(t_list *inbox);
@@ -57,10 +67,14 @@ void  ft_rotate_a(t_tower *tower);
 void  ft_rotate_b(t_tower *tower);
 void  ft_rotate_rra(t_tower *tower);
 void  ft_rotate_rrb(t_tower *tower);
-t_list	*ft_sort_ab(t_tower *tower, int mode1, int mode2);
+void	ft_sort_ab(t_tower *tower, int mode1, int mode2);
 void	ft_sort_ss(t_tower *tower);
 int	ft_count_box(t_list *tmp);
 void	ft_push_b(t_tower *tower);
 void	ft_push_a(t_tower *tower);
+void    ft_sort3(t_tower *tower);
+void    ft_sort5(t_tower *tower);
+void ft_findmin(t_tower *tower, t_list *tmp, int n);
+
 
 #endif

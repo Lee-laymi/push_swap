@@ -1,6 +1,9 @@
-set initial value of parameter in each box.
 check argv & error
-set index
+input value in box + init index value (-1)
+init index value (>0 , asd)
+sort index
+
+
 push a
 push b
 sa
@@ -8,3 +11,11 @@ sb
 ss
 all rotate
 swap 3,4,5 (on going)
+
+
+check error
+    check double
+    check argv
+        check digit
+        check argv error
+    

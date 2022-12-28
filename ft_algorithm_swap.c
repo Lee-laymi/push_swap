@@ -51,3 +51,65 @@ void    ft_algorithm_swap(t_tower *tower)
     }
 }
 
+void    ft_sort3(t_tower *tower)
+{
+    t_tower     *tmp;
+
+    tmp = NULL;
+    tmp = tower;
+
+    if ((tmp->a->num1 > tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 > tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 > tmp->a->num1))
+        ft_sort_ab(tower, 1, 1);
+    else if ((tmp->a->num1 > tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 < tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 < tmp->a->num1))
+        ft_sort_ab(tower, 1, 1);
+    else if ((tmp->a->num1 < tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 < tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 > tmp->a->num1))
+        ft_sort_ab(tower, 1, 1);
+    tmp = tower;
+    if ((tmp->a->num1 > tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 > tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 < tmp->a->num1))
+        ft_rotate_a(tower);
+    else if ((tmp->a->num1 < tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 < tmp->a->next->num1) &&
+            (tmp->a->next->next->num1 < tmp->a->num1))
+        ft_rotate_rra(tower);
+
+}
+
+void    ft_sort5(t_tower *tower)
+{
+    t_list     *tmp;
+
+    tmp = NULL;
+    tmp = tower->a;
+    ft_findmin(tower, tmp, 2);
+    ft_sort3(tower);
+    ft_push_a(tower);
+    ft_push_a(tower);
+}
+
+void ft_findmin(t_tower *tower, t_list *tmp, int n)
+{
+    int i;
+
+    i = 0;
+    while (i < n)
+    {
+        tmp = tower->a;
+        if (tmp->index == i)
+        {
+            ft_push_b(tower);
+            i++;
+        }
+        else if (tmp->next->index == i)
+            ft_sort_ab(tower, 1, 1);
+        else
+            ft_rotate_rra(tower);
+    }
+}

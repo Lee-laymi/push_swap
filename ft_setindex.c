@@ -11,6 +11,7 @@ void    ft_setindex(t_list *stack)
     {
         tmp_stack->index = i++;
         tmp_stack = ft_getnextmin(stack);
+       // printf("Hello\n");
     }
 }
 
