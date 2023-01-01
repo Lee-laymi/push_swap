@@ -36,6 +36,8 @@ typedef struct s_tower
 	t_list	*a;
 	t_list	*b;
 	t_var	var;
+	int		lenv;
+	
 }						t_tower;
 
 

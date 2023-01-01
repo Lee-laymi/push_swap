@@ -6,11 +6,11 @@
 /*   By: ami <ami@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 10:22:48 by ami               #+#    #+#             */
-/*   Updated: 2022/12/17 22:38:59 by ami              ###   ########.fr       */
+/*   Updated: 2022/12/30 20:49:58 by skrsirab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	ft_checkdouble(t_list *inbox)
 {
@@ -32,7 +32,7 @@ void	ft_checkdouble(t_list *inbox)
 		if (len > 1)
 		{
 			write(2, "Error\n", 6);
-			//ft_free(inbox);
+			ft_free(inbox);
 			exit (0);
 		}
 		tmp = tmp->next;
@@ -52,7 +52,7 @@ void	ft_check_argv(char **argv, t_list *box1)
 		ft_check_argv_error(argv, box1, i);
 		j = 0;
 		num = ft_split(argv[i], ' ');
-		ft_checkdigit(num); //, box1);
+		ft_checkdigit(num);
 		while (num[j])
 		{
 			lastbox = ft_lastbox(box1);
@@ -68,8 +68,7 @@ void	ft_check_argv(char **argv, t_list *box1)
 	}	
 }
 
-
-void	ft_checkdigit(char **num) //, t_list *box1)
+void	ft_checkdigit(char **num)
 {
 	int		c;
 	int		d;
@@ -80,8 +79,8 @@ void	ft_checkdigit(char **num) //, t_list *box1)
 		d = 0;
 		while (num[c][d])
 		{
-			
-			if (num[c][d] == '-' && num[c][d] == '+' && (num[c][d + 1] < 48 || num[c][d + 1] > 57))
+			if (num[c][d] == '-' && num[c][d] == '+' && (num[c][d + 1] < 48
+					|| num[c][d + 1] > 57))
 				ft_print_error();
 			else if ((num[c][d] < 48 || num[c][d] > 57) && num[c][d] != ' ' \
 					&& num[c][d] != '-' && num[c][d] != '+')

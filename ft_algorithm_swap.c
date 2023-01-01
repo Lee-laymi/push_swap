@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_algorithm_swap.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skrsirab <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/30 20:50:28 by skrsirab          #+#    #+#             */
+/*   Updated: 2022/12/30 20:51:27 by skrsirab         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int    ft_checklineup(t_tower *tower)
@@ -28,7 +40,7 @@ void    ft_algorithm_swap(t_tower *tower)
     int j;
 
     i = 0;
-    while ( i < 8 && ft_checklineup(tower) == 1)
+    while ( i < 16 && ft_checklineup(tower) == 1)
     {
          j = 0;
         count_box = ft_count_box(tower->a);
@@ -54,32 +66,33 @@ void    ft_algorithm_swap(t_tower *tower)
 void    ft_sort3(t_tower *tower)
 {
     t_tower     *tmp;
-
-    tmp = NULL;
+    int      tmp1;
+    int      tmp2;
+    int      tmp3;
+    
     tmp = tower;
+    tmp1 = tower->a->num1;
+    tmp2 = tower->a->next->num1;
+    tmp3 = tower->a->next->next->num1;
 
-    if ((tmp->a->num1 > tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 > tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 > tmp->a->num1))
+    if ((tmp1 > tmp2) && (tmp3 > tmp2) && (tmp3 > tmp1))
         ft_sort_ab(tower, 1, 1);
-    else if ((tmp->a->num1 > tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 < tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 < tmp->a->num1))
+    if ((tmp1 > tmp2) && (tmp3 < tmp2) && (tmp3 < tmp1))
+    {
         ft_sort_ab(tower, 1, 1);
-    else if ((tmp->a->num1 < tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 < tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 > tmp->a->num1))
+    }
+    if ((tmp1 < tmp2) && (tmp3 < tmp2) && (tmp3 > tmp1))
+    {
         ft_sort_ab(tower, 1, 1);
+    }
     tmp = tower;
-    if ((tmp->a->num1 > tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 > tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 < tmp->a->num1))
+    tmp1 = tower->a->num1;
+    tmp2 = tower->a->next->num1;
+    tmp3 = tower->a->next->next->num1;
+    if ((tmp1 > tmp2) && (tmp3 > tmp2) && (tmp3 < tmp1))
         ft_rotate_a(tower);
-    else if ((tmp->a->num1 < tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 < tmp->a->next->num1) &&
-            (tmp->a->next->next->num1 < tmp->a->num1))
+    if ((tmp1 < tmp2) && (tmp3 < tmp2) && (tmp3 < tmp1))
         ft_rotate_rra(tower);
-
 }
 
 void    ft_sort5(t_tower *tower)
@@ -88,10 +101,21 @@ void    ft_sort5(t_tower *tower)
 
     tmp = NULL;
     tmp = tower->a;
-    ft_findmin(tower, tmp, 2);
-    ft_sort3(tower);
-    ft_push_a(tower);
-    ft_push_a(tower);
+
+    if (tower->lenv == 4)
+    {
+        ft_findmin(tower, tmp,1);
+        ft_sort3(tower);
+        ft_push_a(tower);
+    }
+
+    if (tower->lenv == 5)
+    {
+        ft_findmin(tower, tmp, 2);
+        ft_sort3(tower);
+        ft_push_a(tower);
+        ft_push_a(tower);
+    }
 }
 
 void ft_findmin(t_tower *tower, t_list *tmp, int n)

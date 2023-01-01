@@ -33,16 +33,14 @@ CC_FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) -g $(CC_FLAGS) -o $(NAME) $(SRCS) -g
+$(NAME): $(OBJS)
+	@$(CC) $(CC_FLAGS) $(OBJS) -o $(NAME) -g
 
 clean:
-	rm -rf $(NAME)
-	rm -rf *.o
+	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(NAME)
-	rm -rf *.o
 
 re: fclean all
 
