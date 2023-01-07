@@ -19,9 +19,22 @@ void	ft_free(t_list *box1)
 	while (box1)
 	{
 		tmpbox1 = box1;
-		free(tmpbox1);
 		box1 = box1->next;
+		free(tmpbox1);
 	}
+}
+
+void	ft_freetow(t_tower *box1)
+{
+	t_list	*tmpbox1;
+
+	while (box1->a)
+	{
+		tmpbox1 = box1->a;
+		box1->a = box1->a->next;
+		free(tmpbox1);
+	}
+	free(box1);
 }
 
 void	ft_free_split(char **str)

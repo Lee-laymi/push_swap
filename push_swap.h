@@ -77,6 +77,7 @@ void	ft_push_a(t_tower *tower);
 void    ft_sort3(t_tower *tower);
 void    ft_sort5(t_tower *tower);
 void ft_findmin(t_tower *tower, t_list *tmp, int n);
+void	ft_freetow(t_tower *box1);
 
 
 #endif
